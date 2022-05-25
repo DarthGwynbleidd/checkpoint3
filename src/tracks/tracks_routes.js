@@ -1,19 +1,18 @@
 const express = require('express');
-const { updateDatabase } = require('./controllers/tracks.controllers');
 const {
-  storeFile,
-  sheetName,
-  compareData,
-  test,
-} = require('./middlewares/tracks.middlewares');
+  fetchAllTracks,
+  fetchTrack,
+  addingTrack,
+  deletingTrack,
+  updatingTrack,
+} = require('./controllers/tracks.controllers');
 
 const router = express.Router();
 
-// router.post('/', [storeFile, sheetName, compareData, updateDatabase])
-router.get('/', []);
-router.get('/:id', []);
-router.post('/', []);
-router.put('/', []);
-router.delete('/', []);
+router.get('/', [fetchAllTracks]);
+router.get('/:id', [fetchTrack]);
+router.post('/', [addingTrack]);
+router.put('/', [updatingTrack]);
+router.delete('/', [deletingTrack]);
 
 module.exports = router;
